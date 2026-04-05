@@ -1,50 +1,51 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import logo from "../assets/logo.png";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  return (
-    <header className="sticky top-0 z-50 bg-[#2b0000]/90 backdrop-blur-md shadow-md">
+  const whatsappLink = "https://wa.me/916205641625";
 
-      <div className="container flex items-center justify-between py-4">
+  return (
+    <header className="fixed top-0 w-full z-50 bg-[#2b0000]/90 backdrop-blur-md shadow-md">
+      
+      <div className="max-w-6xl mx-auto flex justify-between items-center py-4 px-6">
 
         {/* Logo */}
-        <Link to="/" className="flex items-center space-x-3">
-          <img src={logo} alt="Ink of Traditions" className="w-12 h-12" />
+        <a href="#home" className="flex items-center gap-2">
+          <img src={logo} alt="logo" className="h-10 md:h-12" />
           <div>
-            <div className="text-lg font-bold text-yellow-400">
+            <div className="text-yellow-400 font-bold text-lg">
               Ink of Traditions
             </div>
             <div className="text-xs text-gray-300">
               Henna by Komal
             </div>
           </div>
-        </Link>
+        </a>
 
         {/* Desktop Menu */}
-        <nav className="hidden md:flex space-x-8 items-center">
-          <Link to="/" className="text-gray-200 hover:text-yellow-400">Home</Link>
-          <Link to="/about" className="text-gray-200 hover:text-yellow-400">About</Link>
-          <Link to="/services" className="text-gray-200 hover:text-yellow-400">Services</Link>
-          <Link to="/testimonials" className="text-gray-200 hover:text-yellow-400">Testimonials</Link>
-          <Link to="/contact" className="text-gray-200 hover:text-yellow-400">Contact</Link>
+        <nav className="hidden md:flex space-x-6 items-center text-gray-200">
+          <a href="#home" className="hover:text-yellow-400">Home</a>
+          <a href="#about" className="hover:text-yellow-400">About</a>
+          <a href="#Services" className="hover:text-yellow-400">Services</a>
+          <a href="#testimonials" className="hover:text-yellow-400">Testimonials</a>
+          <a href="#contact" className="hover:text-yellow-400">Contact</a>
 
           <a
-            href="https://wa.me/916205641625"
+            href={whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-2 rounded-full text-white font-medium 
-                       bg-gradient-to-r from-red-700 to-red-500 
-                       hover:from-red-800 hover:to-red-600"
+            className="px-5 py-2 rounded-full text-white font-medium 
+                       bg-gradient-to-r from-[#6b0000] to-[#a52a2a] 
+                       hover:from-[#8b0000] hover:to-[#c04040]"
           >
             WhatsApp
           </a>
         </nav>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Button */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="md:hidden text-white text-2xl"
@@ -55,21 +56,19 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-[#3a0000] px-6 py-6 space-y-4 text-center">
+        <div className="md:hidden bg-[#3a0000] px-6 py-6 text-center space-y-4">
 
-          <Link onClick={() => setMenuOpen(false)} to="/" className="block text-white text-lg">Home</Link>
-          <Link onClick={() => setMenuOpen(false)} to="/about" className="block text-white text-lg">About</Link>
-          <Link onClick={() => setMenuOpen(false)} to="/services" className="block text-white text-lg">Services</Link>
-          <Link onClick={() => setMenuOpen(false)} to="/testimonials" className="block text-white text-lg">Testimonials</Link>
-          <Link onClick={() => setMenuOpen(false)} to="/contact" className="block text-white text-lg">Contact</Link>
+          <a href="#home" onClick={() => setMenuOpen(false)} className="block text-white text-lg">Home</a>
+          <a href="#about" onClick={() => setMenuOpen(false)} className="block text-white text-lg">About</a>
+          <a href="#Services" onClick={() => setMenuOpen(false)} className="block text-white text-lg">Services</a>
+          <a href="#testimonials" onClick={() => setMenuOpen(false)} className="block text-white text-lg">Testimonials</a>
+          <a href="#contact" onClick={() => setMenuOpen(false)} className="block text-white text-lg">Contact</a>
 
-          {/* WhatsApp Button */}
           <a
-            href="https://wa.me/916205641625"
+            href={whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="block w-full mt-4 px-6 py-3 rounded-full text-white font-medium 
-                       bg-gradient-to-r from-green-500 to-green-600"
+            className="block w-full mt-4 px-6 py-3 rounded-full text-white font-medium bg-green-500 hover:bg-green-600"
           >
             WhatsApp
           </a>
