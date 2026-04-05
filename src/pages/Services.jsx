@@ -1,6 +1,6 @@
 // src/pages/Services.jsx
 import React from "react";
-import bgServices from "../assets/Services-bg.jpg";
+import bgServices from "../assets/services-bg.jpg";
 
 export default function Services() {
   return (
