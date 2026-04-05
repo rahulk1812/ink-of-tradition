@@ -1,21 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { FaBars, FaTimes } from "react-icons/fa";
 import logo from "../assets/logo.png";
 
 export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <header className="sticky top-0 z-50 bg-[#2b0000]/90 backdrop-blur-md shadow-md">
-      
+
       <div className="container flex items-center justify-between py-4">
-        
+
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-3">
-          <img
-            src={logo}
-            alt="Ink of Traditions"
-            className="w-12 h-12 object-contain"
-          />
-
+          <img src={logo} alt="Ink of Traditions" className="w-12 h-12" />
           <div>
             <div className="text-lg font-bold text-yellow-400">
               Ink of Traditions
@@ -28,57 +26,55 @@ export default function Navbar() {
 
         {/* Desktop Menu */}
         <nav className="hidden md:flex space-x-8 items-center">
-          
-          <Link
-            to="/"
-            className="text-gray-200 hover:text-yellow-400 transition duration-300"
-          >
-            Home
-          </Link>
+          <Link to="/" className="text-gray-200 hover:text-yellow-400">Home</Link>
+          <Link to="/about" className="text-gray-200 hover:text-yellow-400">About</Link>
+          <Link to="/services" className="text-gray-200 hover:text-yellow-400">Services</Link>
+          <Link to="/testimonials" className="text-gray-200 hover:text-yellow-400">Testimonials</Link>
+          <Link to="/contact" className="text-gray-200 hover:text-yellow-400">Contact</Link>
 
-          <Link
-            to="/about"
-            className="text-gray-200 hover:text-yellow-400 transition duration-300"
-          >
-            About
-          </Link>
-
-          <Link
-            to="/services"
-            className="text-gray-200 hover:text-yellow-400 transition duration-300"
-          >
-            Services
-          </Link>
-
-          <Link
-            to="/testimonials"
-            className="text-gray-200 hover:text-yellow-400 transition duration-300"
-          >
-            Testimonials
-          </Link>
-
-          <Link
-            to="/contact"
-            className="text-gray-200 hover:text-yellow-400 transition duration-300"
-          >
-            Contact
-          </Link>
-
-          {/* WhatsApp Button (MATCHING HERO BUTTON 🔥) */}
           <a
             href="https://wa.me/916205641625"
             target="_blank"
             rel="noopener noreferrer"
             className="px-6 py-2 rounded-full text-white font-medium 
                        bg-gradient-to-r from-red-700 to-red-500 
-                       hover:from-red-800 hover:to-red-600
-                       shadow-lg hover:shadow-xl transition duration-300"
+                       hover:from-red-800 hover:to-red-600"
           >
             WhatsApp
           </a>
-
         </nav>
+
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="md:hidden text-white text-2xl"
+        >
+          {menuOpen ? <FaTimes /> : <FaBars />}
+        </button>
       </div>
+
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div className="md:hidden bg-[#3a0000] px-6 py-6 space-y-4 text-center">
+
+          <Link onClick={() => setMenuOpen(false)} to="/" className="block text-white text-lg">Home</Link>
+          <Link onClick={() => setMenuOpen(false)} to="/about" className="block text-white text-lg">About</Link>
+          <Link onClick={() => setMenuOpen(false)} to="/services" className="block text-white text-lg">Services</Link>
+          <Link onClick={() => setMenuOpen(false)} to="/testimonials" className="block text-white text-lg">Testimonials</Link>
+          <Link onClick={() => setMenuOpen(false)} to="/contact" className="block text-white text-lg">Contact</Link>
+
+          {/* WhatsApp Button */}
+          <a
+            href="https://wa.me/916205641625"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full mt-4 px-6 py-3 rounded-full text-white font-medium 
+                       bg-gradient-to-r from-green-500 to-green-600"
+          >
+            WhatsApp
+          </a>
+        </div>
+      )}
     </header>
   );
 }
