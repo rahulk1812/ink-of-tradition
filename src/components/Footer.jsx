@@ -20,8 +20,8 @@ export default function Footer() {
         {/* Middle: Contact */}
         <div>
           <h3 className="font-semibold text-lg mb-2">Contact</h3>
-          <p className="text-sm">📞 +91 6205641625</p>
-          <p className="text-sm">✉ heenakomal@gmail.com</p>
+          <p className="text-sm">📞 +91 9279974594</p>
+          <p className="text-sm">✉ komalkumari09a28@gmail.com</p>
         </div>
 
         {/* Right: Socials */}
@@ -34,7 +34,7 @@ export default function Footer() {
             <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
               <FaInstagram className="hover:text-pink-500" />
             </a>
-            <a href="https://wa.me/916205641625" target="_blank" rel="noreferrer">
+            <a href="https://wa.me/919279974594" target="_blank" rel="noreferrer">
               <FaWhatsapp className="hover:text-green-500" />
             </a>
           </div>
