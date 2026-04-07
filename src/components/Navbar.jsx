@@ -5,7 +5,7 @@ import logo from "../assets/logo.png";
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const whatsappLink = "https://wa.me/919279974594";
+  const whatsappLink = "https://wa.me/9192799 74595";
 
   return (
     <header className="fixed top-0 w-full z-50 bg-[#2b0000]/90 backdrop-blur-md shadow-md">

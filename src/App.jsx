@@ -11,7 +11,7 @@ import Footer from "./components/Footer";
 
 export default function App() {
 
-  const whatsappLink = "https://wa.me/919279974594";
+  const whatsappLink = "https://wa.me/919279974595";
 
   return (
     <div className="font-sans text-gray-900 scroll-smooth">
